@@ -1,17 +1,22 @@
-# Lincoln Amorim, 20 :computer:
-<h3>Computer Science - UEMS/BR :pushpin:</h3>
+# Visit https://github.com/lowlighter/metrics/blob/master/action.yml for full reference
+name: Metrics
+on:
+  # Schedule updates (each hour)
+  schedule: [{cron: "0 * * * *"}]
+  # Lines below let you run workflow manually and on each commit
+  workflow_dispatch:
+  push: {branches: ["master", "main"]}
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub token
+          token: ${{ secrets.METRICS_TOKEN }}
 
- <div>
-  <a href="https://github.com/lolincoln">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=lolincoln&show_icons=true&theme=midnight-purple&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lolincoln&layout=compact&langs_count=16&theme=midnight-purple"/>
-    <div>
-     
-<div>
-  
-  
-</div>
- 
-
-
-  ![Snake animation](https://github.com/rafaballerini/rafaballerini/blob/output/github-contribution-grid-snake.svg)
+          # Options
+          user: lolincoln
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: America/Cuiaba
